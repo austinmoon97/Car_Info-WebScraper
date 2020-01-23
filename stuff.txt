@@ -1,0 +1,16 @@
+Price
+Transmission
+Horsepower
+Torque
+Engine liters
+Cylinder configuration
+Drivetrain
+Combined MPG
+Fuel economy city
+Fuel economy highway
+Recommended fuel
+Fuel tank capacity
+Front tires
+Curb weight
+Basic warranty (months/miles)
+Powertrain warranty (months/miles)
