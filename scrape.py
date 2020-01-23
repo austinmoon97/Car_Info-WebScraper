@@ -53,46 +53,13 @@ def scrape_trim(trim, trim_url, car_info, all_trims_soup):
     #divide sections of specifications
     specs_sections = specs_container.div.findAll("table", {"id": "specs-accordion-table"})
 
-    ########################################################
-
-
+    #look through all specification info for desired specs
     for section in specs_sections:
         specs = section.find("tbody").findAll("tr")
         for spec in specs:
             if spec.td.text in car_info:
                 car_info[spec.td.text] = spec.find("td",{"class":"data"}).text
 
-
-    #######################################################
-    """
-    #find engine specs
-    engine_specs = specs_sections[3].find("tbody").findAll("tr")
-    
-    for spec in engine_specs:
-        if spec.td.text in car_info:
-            car_info[spec.td.text] = spec.findAll("td")[1].text
-
-    #find suspension/handling specs
-    suspension_specs = specs_sections[6].find("tbody").findAll("tr")
-
-    for spec in suspension_specs:
-        if spec.td.text in car_info:
-            car_info[spec.td.text] = spec.find("td",{"class":"data"}).text
-
-    #find standard specs
-    standard_specs = specs_sections[12].find("tbody").findAll("tr")
-
-    for spec in standard_specs:
-        if spec.td.text in car_info:
-            car_info[spec.td.text] = spec.find("td",{"class":"data"}).text
-
-    #find warranty specs
-    warranty_specs = specs_sections[13].find("tbody").findAll("tr")
-
-    for spec in warranty_specs:
-        if spec.td.text in car_info:
-            car_info[spec.td.text] = spec.find("td",{"class":"data"}).text
-    """
 
     #find price and drivetrain (not available on the same html page)
     #use bs4 object corresponding to https://www.cars.com/research/make-model-year/trims/
